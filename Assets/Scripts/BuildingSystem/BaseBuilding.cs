@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Construction
+namespace BuildingSystem
 {
-    public class Building : MonoBehaviour
+    public class BaseBuilding : MonoBehaviour
     {
         public string title;
         public int level;

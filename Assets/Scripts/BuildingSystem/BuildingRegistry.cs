@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Construction
+namespace BuildingSystem
 {
-    public class BuildingManager : MonoBehaviour
+    public class BuildingRegistry : MonoBehaviour
     {
         public List<GameObject> buildingsList;
     }
