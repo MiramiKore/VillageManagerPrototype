@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2621107077695576130}
   - component: {fileID: 8315620279913191289}
   m_Layer: 0
-  m_Name: Building
-  m_TagString: Untagged
+  m_Name: ResidentialBuilding
+  m_TagString: ResidentialBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,3 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73de977cefc503144a345440057d5a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: "\u0416\u0438\u043B\u043E\u0439 \u0434\u043E\u043C"
+  level: 0
+  image: {fileID: 21300000, guid: 187107ae9cd48e1418b015da437365c6, type: 3}

@@ -15,9 +15,9 @@ namespace Construction
             buildingSystem.onBuild.AddListener(Build);
         }
 
-        private void Build(Building building, GameObject projection)
+        private void Build(GameObject building, GameObject projection)
         {
-            var currentBuilding = Instantiate(building.gameObject, parentLocation.transform);
+            var currentBuilding = Instantiate(building, parentLocation.transform);
             currentBuilding.transform.position = projection.transform.position;
         
             buildQueue.Add(currentBuilding);
