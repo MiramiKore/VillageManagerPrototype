@@ -9,11 +9,16 @@ namespace BuildingSystem
 
         [SerializeField] private LayerMask groundLayer; // Слой земли, по которому будет перемещаться объект
 
+        [SerializeField] private GameObject gridDisplay;
+
         private MeshFilter _buildingObjectPreviewMesh;
+
+        private Grid _grid;
 
         private void Awake()
         {
             _buildingObjectPreviewMesh = buildingObjectPreview.GetComponent<MeshFilter>();
+            _grid = FindObjectOfType<Grid>();
         }
 
         // Включить проекцию постройки
@@ -21,10 +26,17 @@ namespace BuildingSystem
         public void ShowBuildingPreview(GameObject building)
         {
             buildingObjectPreview.SetActive(true);
-
+            
+            // Включаем сетку
+            gridDisplay.SetActive(true);
+            
             // Заменяем модель объекта предпросмотра на модель постройки
             var buildingMesh = building.GetComponent<MeshFilter>();
             _buildingObjectPreviewMesh.mesh = buildingMesh.sharedMesh;
+
+            // Изменям размер проекции на размер объекта
+            var buildingScale = building.gameObject;
+            _buildingObjectPreviewMesh.transform.localScale = buildingScale.transform.localScale;
 
             MovePreviewToPointerPosition(building);
         }
@@ -33,6 +45,9 @@ namespace BuildingSystem
         public Vector3 HideBuildingPreview()
         {
             buildingObjectPreview.SetActive(false);
+            
+            // Отключаем сетку
+            gridDisplay.SetActive(false);
 
             return buildingObjectPreview.transform.position;
         }
@@ -50,10 +65,13 @@ namespace BuildingSystem
                 // Получаем точку, на которую указывает луч
                 var targetPosition = hit.point;
 
+                // Находим ближайшую точку на сетке
+                var cellCenterPosition = _grid.GetCellCenterWorld(_grid.WorldToCell(targetPosition));
+                
                 // Обновляем позицию объекта
                 var projectionTransform = buildingObjectPreview.transform;
                 projectionTransform.position =
-                    new Vector3(targetPosition.x, building.transform.position.y, targetPosition.z);
+                    new Vector3(cellCenterPosition.x, building.transform.position.y, cellCenterPosition.z);
             }
         }
     }
