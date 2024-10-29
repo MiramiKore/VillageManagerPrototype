@@ -18,7 +18,7 @@ namespace BuildingSystem
         private void Awake()
         {
             _buildingObjectPreviewMesh = buildingObjectPreview.GetComponent<MeshFilter>();
-            _grid = FindObjectOfType<Grid>();
+            _grid = FindAnyObjectByType<Grid>();
         }
 
         // Включить проекцию постройки

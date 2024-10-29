@@ -14,9 +14,9 @@ namespace BuildingSystem
 
         private void Awake()
         {
-            _buildingPreview = FindObjectOfType<BuildingPreview>();
+            _buildingPreview = FindFirstObjectByType<BuildingPreview>();
 
-            var buildingModeUI = FindObjectOfType<BuildingModeUI>();
+            var buildingModeUI = FindFirstObjectByType<BuildingModeUI>();
             buildingModeUI.buttonOnCardPress.AddListener(StartPreviewBuilding);
         }
 

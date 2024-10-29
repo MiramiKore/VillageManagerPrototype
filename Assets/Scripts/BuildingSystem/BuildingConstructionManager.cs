@@ -11,7 +11,7 @@ namespace BuildingSystem
 
         private void Awake()
         {
-            var buildingSystem = FindObjectOfType<BuildingController>();
+            var buildingSystem = FindFirstObjectByType<BuildingController>();
             buildingSystem.onBuild.AddListener(Build);
         }
 

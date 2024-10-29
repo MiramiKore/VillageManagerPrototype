@@ -20,7 +20,7 @@ namespace UI
         
         private void Awake()
         {
-            _buildingRegistry = FindObjectOfType<BuildingRegistry>();
+            _buildingRegistry = FindAnyObjectByType<BuildingRegistry>();
             
             GenerateBuildingCards();
         }
