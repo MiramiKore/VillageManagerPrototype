@@ -13,12 +13,15 @@ namespace BuildingSystem
 
         private MeshFilter _buildingObjectPreviewMesh;
 
+        private GridManager _gridManager; 
+            
         private Grid _grid;
 
         private void Awake()
         {
             _buildingObjectPreviewMesh = buildingObjectPreview.GetComponent<MeshFilter>();
             _grid = FindAnyObjectByType<Grid>();
+            _gridManager = FindFirstObjectByType<GridManager>();
         }
 
         // Включить проекцию постройки
@@ -72,6 +75,8 @@ namespace BuildingSystem
                 var projectionTransform = buildingObjectPreview.transform;
                 projectionTransform.position =
                     new Vector3(cellCenterPosition.x, building.transform.position.y, cellCenterPosition.z);
+
+                _gridManager.CanPlaceObject(cellCenterPosition, building.GetComponent<BuildingData>());
             }
         }
     }

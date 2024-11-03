@@ -30,7 +30,7 @@ namespace UI
         {
             foreach (var construction in _buildingRegistry.buildingsList)
             {
-                var buildingInfo = construction.GetComponent<BaseBuilding>();
+                var buildingInfo = construction.GetComponent<BuildingData>();
 
                 // Создаем карточку на сцене
                 var card = Instantiate(buildingPrefabCard, locationInHierarchy.transform);
