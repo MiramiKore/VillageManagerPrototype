@@ -121,7 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73de977cefc503144a345440057d5a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroy:
+    m_PersistentCalls:
+      m_Calls: []
   title: "\u0416\u0438\u043B\u043E\u0439 \u0434\u043E\u043C"
-  level: 0
   image: {fileID: 21300000, guid: 187107ae9cd48e1418b015da437365c6, type: 3}
   size: {x: 1, y: 1}
+  currentLevel: 0

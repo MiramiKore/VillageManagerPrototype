@@ -4,26 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9145e960-771e-4548-bfb5-dc44bf7e9022" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/GridManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/GridManager.cs.meta" afterDir="false" />
+    <list default="true" id="9145e960-771e-4548-bfb5-dc44bf7e9022" name="Changes" comment="Доработал прототип системы строительства, сделал систему расположения зданий и проверку занятых ячеек">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VillageManagerPrototype/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VillageManagerPrototype/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/Projection.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Projection.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Construction/ResidentialBuilding.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Construction/ResidentialBuilding.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Construction/Sawmill.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Construction/Sawmill.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Construction/Warehouse.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Construction/Warehouse.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PrototypeScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PrototypeScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BaseBuilding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BaseBuilding.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingData.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingConstructionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingConstructionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingPreview.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingPreview.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/TypesOfBuildings/ResidentialBuildingType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/TypesOfBuildings/ResidentialBuildingDataType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/TypesOfBuildings/ResidentialBuildingType.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/TypesOfBuildings/ResidentialBuildingDataType.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/BuildingModeUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/BuildingModeUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/GridShader/GridShader.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/GridShader/GridShader.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/GridManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/GridManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +20,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/UnityProjects/VillageManagerPrototype/Assets/Scripts/BuildingSystem/BuildingController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UnityProjects/VillageManagerPrototype/Assets/Scripts/BuildingSystem/BuildingConstructionManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProjectColorInfo">{
@@ -119,8 +105,18 @@
       <option name="presentableId" value="Default" />
       <updated>1730489984254</updated>
       <workItem from="1730489986348" duration="13680000" />
-      <workItem from="1730670074644" duration="4084000" />
+      <workItem from="1730670074644" duration="6257000" />
+      <workItem from="1730718798159" duration="2821000" />
     </task>
+    <task id="LOCAL-00001" summary="Доработал прототип системы строительства, сделал систему расположения зданий и проверку занятых ячеек">
+      <option name="closed" value="true" />
+      <created>1730677162527</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730677162527</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +126,7 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Доработал прототип системы строительства, сделал систему расположения зданий и проверку занятых ячеек" />
+    <option name="LAST_COMMIT_MESSAGE" value="Доработал прототип системы строительства, сделал систему расположения зданий и проверку занятых ячеек" />
   </component>
 </project>

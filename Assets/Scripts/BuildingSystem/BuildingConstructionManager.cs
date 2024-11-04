@@ -20,16 +20,28 @@ namespace BuildingSystem
         }
 
         // Возводим постройку
-        private void Build(GameObject building, Vector3 buildingPreviewPosition)
+        private void Build(GameObject prefab, Vector3 prefabPreviewPosition)
         {
-            var canBuild = _gridManager.PlaceObject(buildingPreviewPosition, building.GetComponent<BuildingData>());
+            if (_gridManager.CanPlaceObject(prefabPreviewPosition, prefab.GetComponent<BuildingData>()))
+            {
+                var building = Instantiate(prefab, locationInHierarchy.transform);
+                building.transform.position = prefabPreviewPosition;
 
-            if (!canBuild) return;
+                var buildingData = building.GetComponent<BuildingData>();
+                buildingData.destroy.AddListener(DestroyBuild);
             
-            var currentBuilding = Instantiate(building, locationInHierarchy.transform);
-            currentBuilding.transform.position = buildingPreviewPosition;
+                _gridManager.PlaceObject(building.transform.position, buildingData);
 
-            buildingsQueue.Add(currentBuilding);
+                buildingsQueue.Add(building);
+            }
+            else
+                Debug.Log("Невозможно разместить здание");
+        }
+
+        private void DestroyBuild(BuildingData buildingData)
+        {
+            _gridManager.DestroyObject(buildingData.gameObject);
+            Destroy(buildingData.gameObject);
         }
     }
 }
