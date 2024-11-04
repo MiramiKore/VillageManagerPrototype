@@ -6,75 +6,72 @@ namespace BuildingSystem
 {
     public class GridManager : MonoBehaviour
     {
-        private Dictionary<Vector2Int, GameObject> _occupiedCells = new();
-
-        // Материал проекции постройки и его цвета
-        [SerializeField] private Material previewObjectMaterial;
-        [SerializeField] private Color greenColor;
-        [SerializeField] private Color redColor;
-
+        // Занятые постройками ячейки
+        private readonly Dictionary<Vector2Int, GameObject> _occupiedCells = new();
+        
         private Grid _grid;
 
         private void Awake()
         {
             _grid = FindFirstObjectByType<Grid>();
+            var buildingController = FindFirstObjectByType<BuildingsController>();
+
+            // Подписываемся на события управления постройкой
+            buildingController.constructionIsCompleted.AddListener(PlaceObjectOnGrid);
+            buildingController.demolitionIsCompleted.AddListener(DemolishObjectOnGrid);
         }
 
-        // Метод проверки, свободны ли все ячейки для объекта нужного размера
-        public bool CanPlaceObject(Vector3 buildingPosition, BuildingData buildingData)
+        // Проверям свободны ли ячейки для объекта нужного размера
+        public bool CanPlaceObjectOnGrid(Vector3 buildingPosition, BuildingData buildingData)
         {
-            var buildingPos = _grid.WorldToCell(buildingPosition);
-
-            var halfWidth = Mathf.FloorToInt(buildingData.size.x / 2f);
-            var halfHeight = Mathf.FloorToInt(buildingData.size.y / 2f);
-
-            for (int x = -halfWidth; x <= halfWidth; x++)
+            foreach (var cellPosition in GetOccupiedCells(buildingPosition, buildingData))
             {
-                for (int z = -halfHeight; z <= halfHeight; z++)
-                {
-                    var cellPosition = new Vector2Int(buildingPos.x + x, buildingPos.y + z);
-
-                    if (_occupiedCells.ContainsKey(cellPosition))
-                    {
-                        previewObjectMaterial.color = redColor;
-                        return false;
-                    }
-                }
+                if (_occupiedCells.ContainsKey(cellPosition))
+                    return false;
             }
 
-            previewObjectMaterial.color = greenColor;
             return true;
         }
 
-        public void DestroyObject(GameObject building)
+        // Размещаем объект на сетке
+        private void PlaceObjectOnGrid(Vector3 buildingPosition, BuildingData buildingData)
         {
+            foreach (var cellPosition in GetOccupiedCells(buildingPosition, buildingData))
+            {
+                _occupiedCells[cellPosition] = buildingData.gameObject;
+            }
+        }
+
+        // Удаляем объект с сетки
+        private void DemolishObjectOnGrid(GameObject building)
+        {
+            // Добавляем ключи занятых ячеек в сиписок для удаления
             var keysToRemove = _occupiedCells
                 .Where(build => build.Value == building)
                 .Select(build => build.Key)
                 .ToList();
 
+            // Удаляем ключи занятых ячеек
             foreach (var key in keysToRemove)
-            {
                 _occupiedCells.Remove(key);
-                Debug.Log("Remove");
-            }
         }
 
-        // Метод для размещения объекта в свободных ячейках
-        public void PlaceObject(Vector3 buildingPosition, BuildingData buildingData)
+        // Получаем все ячейки занимаемые объектом вокруг базовой ячейки
+        private IEnumerable<Vector2Int> GetOccupiedCells(Vector3 buildingPosition, BuildingData buildingData)
         {
-            var baseCell = _grid.WorldToCell(buildingPosition);
-            
+            // Положение ячейки в которой находиться постройка
+            var baseCellPosition = _grid.WorldToCell(buildingPosition);
+
+            // Вычисляем половину размера постройки для коректного заполения вокруг базовой ячейки
             var halfWidth = Mathf.FloorToInt(buildingData.size.x / 2f);
             var halfHeight = Mathf.FloorToInt(buildingData.size.y / 2f);
 
-            // Заполняем ячейки вокруг центральной позиции объекта
-            for (int x = -halfWidth; x <= halfWidth; x++)
+            // Вычисляем кол-во ячеек под постройку в зависимости от размера
+            for (var x = -halfWidth; x <= halfWidth; x++)
             {
-                for (int z = -halfHeight; z <= halfHeight; z++)
+                for (var z = -halfHeight; z <= halfHeight; z++)
                 {
-                    var cellPosition = new Vector2Int(baseCell.x + x, baseCell.y + z);
-                    _occupiedCells[cellPosition] = buildingData.gameObject;
+                    yield return new Vector2Int(baseCellPosition.x + x, baseCellPosition.y + z);
                 }
             }
         }

@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9145e960-771e-4548-bfb5-dc44bf7e9022" name="Changes" comment="Доработал прототип системы строительства, сделал систему расположения зданий и проверку занятых ячеек">
+    <list default="true" id="9145e960-771e-4548-bfb5-dc44bf7e9022" name="Changes" comment="Закончил систему строительства">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VillageManagerPrototype/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VillageManagerPrototype/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Projection.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Projection.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Construction/Sawmill.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Construction/Sawmill.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingConstructionManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingConstructionManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingsController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingPreview.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/BuildingPreview.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/GridManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BuildingSystem/GridManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +111,7 @@
       <updated>1730489984254</updated>
       <workItem from="1730489986348" duration="13680000" />
       <workItem from="1730670074644" duration="6257000" />
-      <workItem from="1730718798159" duration="2821000" />
+      <workItem from="1730718798159" duration="20814000" />
     </task>
     <task id="LOCAL-00001" summary="Доработал прототип системы строительства, сделал систему расположения зданий и проверку занятых ячеек">
       <option name="closed" value="true" />
@@ -116,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730677162527</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Закончил систему строительства">
+      <option name="closed" value="true" />
+      <created>1730727276569</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730727276569</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +140,7 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Доработал прототип системы строительства, сделал систему расположения зданий и проверку занятых ячеек" />
-    <option name="LAST_COMMIT_MESSAGE" value="Доработал прототип системы строительства, сделал систему расположения зданий и проверку занятых ячеек" />
+    <MESSAGE value="Закончил систему строительства" />
+    <option name="LAST_COMMIT_MESSAGE" value="Закончил систему строительства" />
   </component>
 </project>
