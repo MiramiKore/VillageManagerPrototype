@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using SelectionSystem;
+using UI;
 using UnityEngine;
 
 namespace BuildingSystem
@@ -9,10 +11,16 @@ namespace BuildingSystem
         [SerializeField] private GameObject locationInHierarchy; // Позиция объекта в иерархии редактора
 
         private BuildingsController _buildingsController;
+        private SelectionManager _selectionManager;
 
         private void Awake()
         {
-            _buildingsController = FindFirstObjectByType<BuildingsController>();
+            _buildingsController = FindAnyObjectByType<BuildingsController>();
+
+            _selectionManager = FindAnyObjectByType<SelectionManager>();
+
+            var buildingUI = FindAnyObjectByType<TestBuildingUI>();
+            buildingUI.destroyButtonActive.AddListener(Demolition);
         }
         
         // Строим здание
@@ -33,6 +41,9 @@ namespace BuildingSystem
         // Сносим здание
         public void Demolition(GameObject building)
         {
+            _selectionManager.ClearSelection();
+            _selectionManager.Unregister(building.GetComponent<Selectable>());
+            
             Destroy(building);
             
             // Вызываем ивент завершения сноса постройки

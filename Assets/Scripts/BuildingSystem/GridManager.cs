@@ -13,8 +13,8 @@ namespace BuildingSystem
 
         private void Awake()
         {
-            _grid = FindFirstObjectByType<Grid>();
-            var buildingController = FindFirstObjectByType<BuildingsController>();
+            _grid = FindAnyObjectByType<Grid>();
+            var buildingController = FindAnyObjectByType<BuildingsController>();
 
             // Подписываемся на события управления постройкой
             buildingController.constructionIsCompleted.AddListener(PlaceObjectOnGrid);

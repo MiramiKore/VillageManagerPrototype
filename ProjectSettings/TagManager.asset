@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Warehouse
-  - ResidentialBuilding
+  - Construction
   layers:
   - Default
   - TransparentFX

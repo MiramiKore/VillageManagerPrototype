@@ -25,7 +25,7 @@ namespace BuildingSystem
             _buildingObjectPreviewMesh = buildingObjectPreview.GetComponent<MeshFilter>();
             _previewObjectMaterial = buildingObjectPreview.GetComponent<Renderer>().material;
 
-            _gridManager = FindFirstObjectByType<GridManager>();
+            _gridManager = FindAnyObjectByType<GridManager>();
             _grid = FindAnyObjectByType<Grid>();
         }
 
