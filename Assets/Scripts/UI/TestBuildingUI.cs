@@ -1,9 +1,9 @@
 ﻿using BuildingSystem;
-using SelectionSystem;
+using Selection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using Selectable = SelectionSystem.Selectable;
+using Selectable = Selection.Selectable;
 
 namespace UI
 {
@@ -11,15 +11,15 @@ namespace UI
     {
         [SerializeField] private TextMeshProUGUI buildingTitle;
         [SerializeField] private TextMeshProUGUI level;
-        
+
         [HideInInspector] public UnityEvent<GameObject> destroyButtonActive = new();
-        
+
         private void Awake()
         {
             var uiSelectionManager = FindAnyObjectByType<UISelectionManager>();
             uiSelectionManager.onConstructionSelected.AddListener(OpenUI);
 
-            var selectionManager = FindAnyObjectByType<SelectionManager>();
+            var selectionManager = FindAnyObjectByType<SelectionSystem>();
             selectionManager.objectDeselected.AddListener(CloseUI);
         }
 

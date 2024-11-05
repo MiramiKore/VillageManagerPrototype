@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Selectable = SelectionSystem.Selectable;
+using Selectable = Selection.Selectable;
 
 namespace UI
 {
@@ -29,19 +29,16 @@ namespace UI
             uiWindow.SetActive(false);
             RemoveButtonListeners();
         }
-        
+
         private void MoveUI(Vector3 objectPosition)
         {
             var screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
-            uiWindow.transform.position = screenPosition + (Vector3.up* distanceUIFromBuilding);
+            uiWindow.transform.position = screenPosition + Vector3.up * distanceUIFromBuilding;
         }
 
         private void RemoveButtonListeners()
         {
-            foreach (var button in buttons)
-            {
-                button.onClick.RemoveAllListeners();
-            }   
+            foreach (var button in buttons) button.onClick.RemoveAllListeners();
         }
     }
 }

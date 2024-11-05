@@ -1,21 +1,21 @@
-﻿using SelectionSystem;
+﻿using Selection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class GroundClickDetector : MonoBehaviour
 {
-    private SelectionManager _selectionManager;
+    private SelectionSystem _selectionSystem;
 
     private void Awake()
     {
-        _selectionManager = FindAnyObjectByType<SelectionManager>();
+        _selectionSystem = FindAnyObjectByType<SelectionSystem>();
     }
 
     private void OnMouseDown()
     {
         // Проверяем находится ли курсор над интерфейсом
         if (EventSystem.current.IsPointerOverGameObject()) return;
-        
-        _selectionManager.ClearSelection();
+
+        _selectionSystem.ClearSelection();
     }
 }

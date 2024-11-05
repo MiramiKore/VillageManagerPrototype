@@ -1,4 +1,4 @@
-﻿using SelectionSystem;
+﻿using Selection;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,30 +9,27 @@ namespace UI
         // Событие вызываемое при выборе объектов с тегом "Construction"
         [HideInInspector] public UnityEvent<Selectable> onConstructionSelected = new();
 
-        private SelectionManager _manager;
+        private SelectionSystem _system;
 
         private void Awake()
         {
-            _manager = FindAnyObjectByType<SelectionManager>();
+            _system = FindAnyObjectByType<SelectionSystem>();
         }
 
         private void OnEnable()
         {
-            _manager.objectSelected.AddListener(UIObjectSelector);
+            _system.objectSelected.AddListener(UIObjectSelector);
         }
 
         private void OnDisable()
         {
-            _manager.objectSelected.RemoveAllListeners();
+            _system.objectSelected.RemoveAllListeners();
         }
 
         // Управляем интрфейсом для выбранного объекта
         private void UIObjectSelector(Selectable selectable)
         {
-            if (selectable.CompareTag("Construction"))
-            {
-                onConstructionSelected.Invoke(selectable);
-            }
+            if (selectable.CompareTag("Construction")) onConstructionSelected.Invoke(selectable);
         }
     }
 }
